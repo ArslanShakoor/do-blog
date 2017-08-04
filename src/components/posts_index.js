@@ -1,8 +1,9 @@
+import _ from  'lodash';
 import React, { Component } from  'react';
 
 
 class PostsIndex extends Component{
-	const request = axios.get('')
+	 
 	render(){
 		 console.log("ars");
 		return(
