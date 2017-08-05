@@ -3,17 +3,26 @@
 
 class PostNew extends Component{
 	renderField(field){
+
+
+		//remove the field infront of meta and remove meta which are behind touched and error
+		const { meta : {touched, error} } = field;
+
+		const  className=`form-group ${touched && error ? 'has-danger' : ''}`
 		return(
-          <div className="form-group">
+          <div className={className}>
            <label>{field.label}</label>
             <input
                className="form-control"
               {...field.input}
             />
 {/* anything before the question mark evaludated if it is true and query 
-after the question mark run other wise run after colon */}            
-            {field.meta.touched ? field.meta.error : ''}
+after the question mark run other wise run after colon */} 
+           <div className="text-help">
+            {touched ?  error : ''}
+           </div> 
           </div>
+
         );
 	}
 	onSubmit(values){
