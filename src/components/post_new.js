@@ -10,15 +10,21 @@ class PostNew extends Component{
                className="form-control"
               {...field.input}
             />
+            {field.meta.error}
           </div>
         );
+	}
+	onSubmit(values){
+		console.log(values);
 	}
 	 
 
 	render(){
-		return (
+		const { handleSubmit } = this.props;
 
-			<div>
+		return (
+//handle submit asked to run the redux form to chech validation and all  and if it  is valid than run our this.onSubmit
+			<form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
 			   <Field
 			      label = "Title"
 			      name = "title"
@@ -33,8 +39,9 @@ class PostNew extends Component{
 			      label = "Description of post"
 			      name = "content"
 			      component = {this.renderField}
-			   />  
-			</div>
+			   /> 
+			   <button type="submit" className= "btn btn-primary"> Submit </button> 
+			</form>
 
 		);
 	}
@@ -43,26 +50,26 @@ class PostNew extends Component{
 }
 
 function validate(values){
-	const errors = {
+	const errors = {}
 
 		//validate the inputs from values 	
 		if(!values.title ){
-			errors.title = "Enter a title"
+			errors.title = "Enter a title";
 		}
 
 		if(!values.categories){
-			errors.title = "Enter a category"
+			errors.categories = "Enter a category";
 		}
 
-		if(!values.description){
-			errors.title = "Enter a description of post"
+		if(!values.content){
+			errors.content = "Enter a description of post";
 		}
 
 
 		//vaildate the input values
 
 		//if error is empty the form is fine to submit otherwise form is invalid
-	}
+		return errors;
 
 }
 
