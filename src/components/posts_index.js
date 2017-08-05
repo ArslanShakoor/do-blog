@@ -26,7 +26,7 @@ class PostsIndex extends Component{
 		return(
 			<div>
 				<div className="text-xs-right">
-				  
+				  {/* add a hyper link but in react without relaoding page */}
 	              <Link className="btn btn-primary" to = "/new">
 	                Add a post
 	              </Link>
