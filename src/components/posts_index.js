@@ -3,6 +3,7 @@
  // connect react-redux allow the component to connect with reducer which is our redux state
  import { connect } from 'react-redux';
  import { fetchPosts } from  '../actions';
+ import { Link } from 'react-router-dom';
 
 
 class PostsIndex extends Component{
@@ -24,6 +25,12 @@ class PostsIndex extends Component{
 	render(){
 		return(
 			<div>
+				<div className="text-xs-right">
+				  
+	              <Link className="btn btn-primary" to = "/new">
+	                Add a post
+	              </Link>
+				</div>
 			  {this.renderPosts()}
 			</div>
         );
