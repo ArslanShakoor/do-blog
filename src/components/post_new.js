@@ -31,7 +31,7 @@ class PostNew extends Component{
 			   />  
 			    <Field
 			      label = "Description of post"
-			      name = "description"
+			      name = "content"
 			      component = {this.renderField}
 			   />  
 			</div>
@@ -42,6 +42,31 @@ class PostNew extends Component{
 	
 }
 
+function validate(values){
+	const errors = {
+
+		//validate the inputs from values 	
+		if(!values.title ){
+			errors.title = "Enter a title"
+		}
+
+		if(!values.categories){
+			errors.title = "Enter a category"
+		}
+
+		if(!values.description){
+			errors.title = "Enter a description of post"
+		}
+
+
+		//vaildate the input values
+
+		//if error is empty the form is fine to submit otherwise form is invalid
+	}
+
+}
+
 export default reduxForm({
+	validate,
 	form: 'PostsNewForm'
 })(PostNew)
