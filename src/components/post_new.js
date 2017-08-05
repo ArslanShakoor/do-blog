@@ -10,7 +10,9 @@ class PostNew extends Component{
                className="form-control"
               {...field.input}
             />
-            {field.meta.error}
+{/* anything before the question mark evaludated if it is true and query 
+after the question mark run other wise run after colon */}            
+            {field.meta.touched ? field.meta.error : ''}
           </div>
         );
 	}
