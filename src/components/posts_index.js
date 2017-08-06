@@ -12,6 +12,8 @@ class PostsIndex extends Component{
        this.props.fetchPosts();
 	}
 
+
+
 	renderPosts(){
 		return _.map(this.props.posts, post=>{
 			 
@@ -33,6 +35,7 @@ class PostsIndex extends Component{
 	              <Link className="btn btn-primary" to = "/posts/new">
 	                Add a post
 	              </Link>
+	              
 				</div>
 			  {this.renderPosts()}
 			</div>
