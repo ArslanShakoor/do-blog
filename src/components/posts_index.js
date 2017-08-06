@@ -14,6 +14,7 @@ class PostsIndex extends Component{
 
 	renderPosts(){
 		return _.map(this.props.posts, post=>{
+			console.log(post.id);
 			return(
                <li className="list-group-item" key={ post.id }>
                  {post.title}
@@ -27,7 +28,7 @@ class PostsIndex extends Component{
 			<div>
 				<div className="text-xs-right">
 				  {/* add a hyper link but in react without relaoding page */}
-	              <Link className="btn btn-primary" to = "/new">
+	              <Link className="btn btn-primary" to = "/posts/new">
 	                Add a post
 	              </Link>
 				</div>
@@ -40,8 +41,8 @@ class PostsIndex extends Component{
 
 //make the reducer avaialable to component
  
-function mapStateToProps(state) {
-  return { posts: state.posts };
+function mapStateToProps({posts}) {
+  return { posts };
 }
 
 

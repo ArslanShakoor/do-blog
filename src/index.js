@@ -22,7 +22,7 @@ ReactDOM.render(
       <div>
 
         <Switch>
-          <Route path='/new' component={PostNew}/>
+          <Route path='/posts/new' component={PostNew}/>
           <Route path='/posts/:id' component={PostShow}/>
           <Route path="/" component={PostsIndex} /> 
         </Switch>
