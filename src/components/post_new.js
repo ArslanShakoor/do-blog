@@ -1,5 +1,10 @@
  import React,{Component} from 'react';
- import {Field, reduxForm} from 'redux-form'
+ import {Field, reduxForm} from 'redux-form';
+ import { Link } from 'react-router-dom';
+ // to connect action creator with post 
+ import { connect } from 'react-redux';
+ // import the action creator
+ import { createPost } from '../actions';
 
 class PostNew extends Component{
 	renderField(field){
@@ -26,7 +31,7 @@ after the question mark run other wise run after colon */}
         );
 	}
 	onSubmit(values){
-		console.log(values);
+		this.props.createPost(values);
 	}
 	 
 
@@ -52,6 +57,8 @@ after the question mark run other wise run after colon */}
 			      component = {this.renderField}
 			   /> 
 			   <button type="submit" className= "btn btn-primary"> Submit </button> 
+			   <Link to="/" className = "btn btn-danger"> cancel </Link>
+			    
 			</form>
 
 		);
@@ -87,4 +94,6 @@ function validate(values){
 export default reduxForm({
 	validate,
 	form: 'PostsNewForm'
-})(PostNew)
+})(
+connect(null,{ createPost })(PostNew)
+);
