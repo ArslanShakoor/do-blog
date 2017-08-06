@@ -31,7 +31,11 @@ after the question mark run other wise run after colon */}
         );
 	}
 	onSubmit(values){
-		this.props.createPost(values);
+	 
+		this.props.createPost(values,()=>{
+			//add the call back fundtion
+			this.props.history.push('/');
+		});
 	}
 	 
 
